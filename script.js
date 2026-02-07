@@ -121,6 +121,8 @@ confirmInput.addEventListener('keypress', (e) => {
 
 // Check for "confirm" as user types - trigger automatically!
 let isAnimating = false;
+const loveTextDiv = document.getElementById('loveText');
+
 confirmInput.addEventListener('input', () => {
     const input = confirmInput.value.trim().toLowerCase();
     if (input === 'confirm' && !isAnimating) {
@@ -137,28 +139,26 @@ function triggerLoveMessage() {
         clearInterval(typeInterval);
     }
 
-    // Magically transform the text!
-    confirmInput.style.transition = 'all 0.5s ease';
-    confirmInput.style.width = '100%';
-    confirmInput.style.color = 'var(--pink-dark)';
-    confirmInput.style.fontWeight = '600';
-    confirmInput.style.fontSize = '0.75rem';
+    // Prepare UI: Hide input and button, show text div
+    confirmInput.classList.add('hidden');
+    submitBtn.classList.add('hidden');
+    loveTextDiv.classList.remove('hidden');
+    loveTextDiv.textContent = '';
 
     // Animate the text transformation
     const loveMessage = "I love you, of course I will be your valentine! 💕";
-    confirmInput.value = '';
 
     let charIndex = 0;
     typeInterval = setInterval(() => {
         if (charIndex < loveMessage.length) {
-            confirmInput.value += loveMessage[charIndex];
+            loveTextDiv.textContent += loveMessage[charIndex];
             charIndex++;
         } else {
             clearInterval(typeInterval);
             typeInterval = null;
             // Celebrate with confetti when the message is complete!
             createConfetti();
-            // Reset so she can type confirm again
+            // Reset logic (though mostly done here as input is hidden)
             isAnimating = false;
         }
     }, 50);
