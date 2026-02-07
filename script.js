@@ -225,6 +225,17 @@ document.addEventListener('mousemove', (e) => {
     mouseY = e.clientY;
 });
 
+// Add touch support for mobile
+const updateTouchPosition = (e) => {
+    if (e.touches.length > 0) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+    }
+};
+
+document.addEventListener('touchmove', updateTouchPosition, { passive: true });
+document.addEventListener('touchstart', updateTouchPosition, { passive: true });
+
 function animateButton() {
     const rect = noBtn.getBoundingClientRect();
     const btnCenterX = rect.left + rect.width / 2;
