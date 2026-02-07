@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special Valentine's Day invitation just for you">
+    <title>💕 Will You Be My Valentine? 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Initial Question Card -->
+        <div class="card" id="questionCard">
+            <div class="card-glow"></div>
+            <div class="hearts-decoration">💕</div>
+            <h1 class="title">Will You Be My Valentine?</h1>
+
+            <div class="buttons-container">
+                <button class="btn btn-yes" id="yesBtn">Yes! 💖</button>
+                <button class="btn btn-no" id="noBtn">No 💔</button>
+            </div>
+        </div>
+
+        <!-- Confirmation Card (Hidden Initially) -->
+        <div class="card hidden" id="confirmCard">
+            <div class="card-glow"></div>
+            <div class="hearts-decoration">💗</div>
+            <h2 class="confirm-title">Are you sure you want to break my heart? 😢</h2>
+            <p class="confirm-text">Please type <strong>"confirm"</strong> if you really mean it...</p>
+            <p class="confirm-hint">(But I know you don't! 💕)</p>
+
+            <div class="input-container">
+                <input type="text" id="confirmInput" class="confirm-input" placeholder="Type here..."
+                    autocomplete="off">
+                <button class="btn btn-submit" id="submitBtn">Submit</button>
+            </div>
+
+            <button class="btn btn-back" id="backBtn">← Wait, I changed my mind!</button>
+        </div>
+
+        <!-- Success Card (Hidden Initially) -->
+        <div class="card hidden" id="successCard">
+            <div class="card-glow success-glow"></div>
+            <div class="success-hearts">
+                <span>💖</span><span>💕</span><span>💗</span><span>💓</span><span>💞</span>
+            </div>
+            <h1 class="success-title">I Love You!</h1>
+            <p class="success-subtitle">Thanks for accepting to be my Valentine! 💕</p>
+            <div class="floating-heart">❤️</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
